@@ -76,3 +76,8 @@ idea {
     testOutputDir = file 'build/test-classes/debug'
   }
 }
+
+if (System.getProperty("intellij")) {
+  dependencyScript = file 'scripts/fix_intellij_dependencies.sh'
+  dependencyScript.toString().execute()
+}
