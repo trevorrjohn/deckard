@@ -26,6 +26,7 @@ android {
     exclude 'META-INF/LICENSE.txt'
     exclude 'META-INF/NOTICE'
   }
+
   compileSdkVersion 18
   buildToolsVersion "19.1.0"
 
@@ -35,6 +36,7 @@ android {
     versionCode 1
     versionName "1.0.0-SNAPSHOT"
   }
+
   buildTypes {
     release {
       runProguard false
@@ -52,6 +54,7 @@ androidTest {
   include '**/*Test.class'
   maxHeapSize = "2048m"
 }
+
 dependencies {
   repositories {
     mavenCentral()
@@ -61,26 +64,8 @@ dependencies {
     }
   }
 
-  androidTestCompile(group: 'junit', name: 'junit', version: '4.11')
-  androidTestCompile(group: 'org.robolectric', name: 'robolectric', version: '2.4-SNAPSHOT') {
-    exclude module: 'classworlds'
-    exclude module: 'maven-artifact'
-    exclude module: 'maven-artifact-manager'
-    exclude module: 'maven-error-diagnostics'
-    exclude module: 'maven-model'
-    exclude module: 'maven-plugin-registry'
-    exclude module: 'maven-profile'
-    exclude module: 'maven-project'
-    exclude module: 'maven-settings'
-    exclude module: 'nekohtml'
-    exclude module: 'plexus-container-default'
-    exclude module: 'plexus-interpolation'
-    exclude module: 'plexus-utils'
-    exclude module: 'wagon-file'
-    exclude module: 'wagon-http-lightweight'
-    exclude module: 'wagon-http-shared'
-    exclude module: 'wagon-provider-api'
-  }
+  androidTestCompile group: 'junit', name: 'junit', version: '4.11'
+  androidTestCompile group: 'org.robolectric', name: 'robolectric', version: '2.4-SNAPSHOT'
   androidTestCompile group: 'com.squareup', name: 'fest-android', version: '1.0.+'
 }
 
@@ -88,6 +73,6 @@ apply plugin: 'idea'
 
 idea {
   module {
-    testOutputDir = file('build/test-classes/debug')
+    testOutputDir = file 'build/test-classes/debug'
   }
 }
