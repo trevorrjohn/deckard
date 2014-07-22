@@ -78,6 +78,7 @@ idea {
 }
 
 if (System.getProperty("intellij")) {
-  dependencyScript = file 'scripts/fix_intellij_dependencies.sh'
-  dependencyScript.toString().execute()
+  exec {
+    commandLine "scripts/fix_intellij_dependencies.sh"
+  }
 }
